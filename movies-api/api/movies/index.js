@@ -33,15 +33,15 @@ router.get('/:id', asyncHandler(async (req, res) => {
     }
 }));
 
-// router.get('/:id/credits', asyncHandler(async (req, res) => {
-//     const id = parseInt(req.params.id);
-//     const credits = await getMovieCredits(id);
-//     if (credits) {
-//         res.status(200).json(credits);
-//     } else {
-//         res.status(404).json({message: 'The resource you requested could not be found.', status_code: 404});
-//     }
-// }));
+router.get('/:id/credits', asyncHandler(async (req, res) => {
+    const id = parseInt(req.params.id);
+    const credits = await getMovieCredits(id);
+    if (credits) {
+        res.status(200).json(credits);
+    } else {
+        res.status(404).json({message: 'The resource you requested could not be found.', status_code: 404});
+    }
+}));
 
 router.get('/:id/similar', asyncHandler(async (req, res) => {
     const id = parseInt(req.params.id);
