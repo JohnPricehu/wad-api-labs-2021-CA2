@@ -113,7 +113,7 @@ export const getTopRatedMovies = () => {
     const [, idPart] = queryKey;
     const { id } = idPart;
     return fetch(
-      // `https://api.themoviedb.org/3/movie/${id}/images?api_key=${process.env.REACT_APP_TMDB_KEY}`
+      // `https://api.themoviedb.org/3/movie/${id}/images?api_key=${process.env.REACT_APP_TMDB_KEY}`,
       `/api/movies/${id}/images`, 
       {headers: {
         "Authorization": window.localStorage.getItem("token")
