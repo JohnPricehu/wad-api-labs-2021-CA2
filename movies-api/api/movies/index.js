@@ -73,16 +73,6 @@ router.get('/:id/images', asyncHandler(async (req, res) => {
     }
 }));
 
-router.get('/:id/reviews', asyncHandler(async (req, res) => {
-    const id = parseInt(req.params.id);
-    const images = await getMovieImages(id);
-    if (images) {
-        res.status(200).json(images);
-    } else {
-        res.status(404).json({message: 'The resource you requested could not be found.', status_code: 404});
-    }
-}));
-
 router.post('/:id/reviews', asyncHandler(async (req, res) => {
     const id = parseInt(req.params.id);
     const reviews = await getMovieReviews(id);
