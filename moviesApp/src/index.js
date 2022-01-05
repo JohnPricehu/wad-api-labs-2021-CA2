@@ -16,7 +16,7 @@ import MoviesContextProvider from "./contexts/moviesContext";
 // import NowPlayingMoviesPage from "./pages/nowPlayingMoviesPage";
 // import TopRatedMoviesPage from "./pages/topRatedMoviesPage";
 import SignUpPage from "./pages/signupPage";
-import LogInPage from "./pages/loginPage";
+import LoginPage from "./pages/loginPage";
 // import UserFilePage from "./pages/userFilePage";
 import "bootstrap/dist/css/bootstrap.min.css"
 import AuthProvider from "./contexts/authContext";
@@ -63,7 +63,7 @@ export const App =()=>{
       <Switch>
         {/* <Route path="/userfile" component={UserFilePage} /> */}
         <Route exact path="/signup" component={SignUpPage} />
-        <Route exact path="/login" component={LogInPage} />
+        <Route exact path="/login" component={LoginPage} />
         <PrivateRoute exact path="/movies/top-rated" component={TopRatedMoviesPage} />
         <PrivateRoute exact path="/movies/now-playing" component={NowPlayingMoviesPage} />
         <PrivateRoute exact path="/movies/mustwatch" component={MustwatchMoviesPage} />
