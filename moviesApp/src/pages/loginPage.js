@@ -11,8 +11,7 @@ const LoginPage = props => {
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const login = () => {
-      context.authenticate(userName, password);
-      
+      context.authenticate(userName, password);      
     };
   
     // Set 'from' to path where browser is redirected after a successful login.
@@ -61,7 +60,8 @@ const LoginPage = props => {
           setPassword(e.target.value);
         }}></input><br /> */}
         {/* Login web form  */}
-        <button className={` ${styles['button']} ${projectStyles['button']} `} onClick={login}>
+        <button className={` ${styles['button']} ${projectStyles['button']} `} 
+        onClick={login}>
           Login
         </button>
         {/* <button onClick={login}>Log in</button> */}
