@@ -33,6 +33,17 @@ router.get('/:id', asyncHandler(async (req, res) => {
     }
 }));
 
+router.delete('/:id', async (req, res) => {
+    const id = parseInt(req.params.id);
+    const movie = await movieModel.findByMovieDBId(id);
+    if (movie) {
+      movieModel.deleteOne({ id: id });
+      res.status(200).send("delete successfully")
+    } else {
+      res.status(404).send("Not find the moive to delete");
+    }
+  });
+
 router.get('/:id/credits', asyncHandler(async (req, res) => {
     const id = parseInt(req.params.id);
     const credits = await getMovieCredits(id);
