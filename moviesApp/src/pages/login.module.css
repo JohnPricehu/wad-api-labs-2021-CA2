@@ -1,0 +1,76 @@
+.container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.container1 {
+  flex: 0 0 auto;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.button {
+  top: 305px;
+  left: 180px;
+  color: var(--dl-color-gray-white);
+  width: var(--dl-size-size-large);
+  height: var(--dl-size-size-small);
+  position: absolute;
+  font-size: 30px;
+  box-shadow: 5px 5px 10px 0px #d4d4d4;
+  text-align: center;
+  background-color: var(--dl-color-primary-100);
+}
+.Input {
+  top: 110px;
+  left: 192px;
+  position: absolute;
+  box-shadow: 5px 5px 10px 0px #d4d4d4;
+}
+.text1 {
+  top: 110px;
+  left: 48px;
+  position: absolute;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+}
+.text2 {
+  top: 210px;
+  left: var(--dl-space-space-threeunits);
+  position: absolute;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+}
+.textinput {
+  top: 210px;
+  left: 192px;
+  position: absolute;
+  box-shadow: 5px 5px 10px 0px #d4d4d4;
+}
+.text3 {
+  left: 90px;
+  bottom: var(--dl-space-space-fourunits);
+  position: absolute;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+}
+.navlink {
+  left: 304px;
+  bottom: var(--dl-space-space-fourunits);
+  position: absolute;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+  text-decoration: none;
+}

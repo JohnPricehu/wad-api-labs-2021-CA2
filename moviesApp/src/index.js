@@ -18,7 +18,8 @@ import MoviesContextProvider from "./contexts/moviesContext";
 import SignUpPage from "./pages/signupPage";
 import LoginPage from "./pages/loginPage";
 // import UserFilePage from "./pages/userFilePage";
-import "bootstrap/dist/css/bootstrap.min.css"
+// import "bootstrap/dist/css/bootstrap.min.css"
+import './style.module.css'
 import AuthProvider from "./contexts/authContext";
 import PrivateRoute from "./components/privateRoute";
 
