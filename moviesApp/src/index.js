@@ -15,8 +15,8 @@ import MoviesContextProvider from "./contexts/moviesContext";
 // import MustwatchMoviesPage from "./pages/mustWatchMoviesPage"; 
 // import NowPlayingMoviesPage from "./pages/nowPlayingMoviesPage";
 // import TopRatedMoviesPage from "./pages/topRatedMoviesPage";
-// import SignUpPage from "./pages/signupPage";
-// import LogInPage from "./pages/loginPage";
+import SignUpPage from "./pages/signupPage";
+import LogInPage from "./pages/loginPage";
 // import UserFilePage from "./pages/userFilePage";
 import "bootstrap/dist/css/bootstrap.min.css"
 
@@ -58,9 +58,9 @@ export const App =()=>{
             {" "}
             <Suspense fallback={<h2>Loading page</h2>}>
       <Switch>
-        {/* <Route path="/userfile" component={UserFilePage} />
+        {/* <Route path="/userfile" component={UserFilePage} /> */}
         <Route exact path="/signup" component={SignUpPage} />
-        <Route exact path="/login" component={LogInPage} /> */}
+        <Route exact path="/login" component={LogInPage} />
         <Route exact path="/movies/top-rated" component={TopRatedMoviesPage} />
         <Route exact path="/movies/now-playing" component={NowPlayingMoviesPage} />
         <Route exact path="/movies/mustwatch" component={MustwatchMoviesPage} />
