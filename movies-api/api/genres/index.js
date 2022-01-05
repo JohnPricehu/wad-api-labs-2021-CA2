@@ -12,8 +12,8 @@ router.get('/', async (req, res) => {
     res.status(200).json(genres);
 });
 
-const router = express.Router(); 
-router.get("/tmdb/gener", async(req, res) => {
+// const router = express.Router(); 
+router.get("/tmdb/genres", async(req, res) => {
     const genres = await getGenres();
     res.status(200).json(genres);
 });

@@ -75,6 +75,26 @@ router.get('/:userName/favourites', asyncHandler( async (req, res) => {
     res.status(200).json(user.favourites);
   }));
 
+  router.post('/:userName/mustWatch', asyncHandler(async (req, res) => {
+    const newMustWatch = req.body.id;
+    const userName = req.params.userName;
+    const movie = await movieModel.findByMovieDBId(newMustWatch);
+    const user = await User.findByUserName(userName);
+    if(!user.mustWatch.includes(movie._id)){
+       await user.mustWatch.push(movie._id);
+        await user.save(); 
+        res.status(201).json(user);  
+    }else {
+        res.status(401).json({success: false, msg: 'The movie already exists in the must watch list.'});
+      }
+  }));
+
+router.get('/:userName/mustWatch', asyncHandler( async (req, res) => {
+    const userName = req.params.userName;
+    const user = await User.findByUserName(userName).populate('mustWatch');
+    res.status(200).json(user.mustWatch);
+  }));
+
 
 
 export default router;
