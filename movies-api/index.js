@@ -41,7 +41,7 @@ app.use('/api/users', usersRouter);
 
 app.use('/api/actors', actorsRouter);
 
-// app.use('/api/movies', authenticate, moviesRouter);
+// app.use('/api/movies', moviesRouter);
 
 app.use('/api/movies', passport.authenticate('jwt', {session: false}), moviesRouter);
 

@@ -4,7 +4,7 @@ import uniqid from 'uniqid';
 import movieModel from './movieModel';
 import asyncHandler from 'express-async-handler';
 import {
-    getUpcomingMovies, getNowPlayingMovies, getTopRatedMovies, getMovieSimilar,getMovieCredits,getMovieImages,getMovieReviews
+    getUpcomingMovies, getNowPlayingMovies, getTopRatedMovies, getMovieSimilar,getMovieCredits,getMovieImages,getMovieReviews, getMovies, getMovie
   } from '../tmdb-api';
 
 const router = express.Router(); 
@@ -115,4 +115,22 @@ router.get('/tmdb/top_rated', asyncHandler( async(req, res) => {
     res.status(200).json(topRatedMovies);
   }));
 
+router.get('/tmdb/movies', asyncHandler( async(req, res) => {
+    const movies = await getMovies();
+    res.status(200).json(movies);
+  }));
+  
+router.get('/tmdb/movies', asyncHandler( async(req, res) => {
+    const movies = await getMovies();
+    res.status(200).json(movies);
+  }));  
+router.get('/tmdb/:id', asyncHandler( async(req, res) => {
+    const id = parseInt(req.params.id);
+    const movie = await getMovie(id);
+    if (movie) {
+        res.status(200).json(movie);
+    } else {
+        res.status(404).json({message: 'The resource you requested could not be found.', status_code: 404});
+    }
+})); 
 export default router;
