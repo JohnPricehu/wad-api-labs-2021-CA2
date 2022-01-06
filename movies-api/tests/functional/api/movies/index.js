@@ -7,6 +7,7 @@ import movies from "../../../../seedData/movies";
 
 const expect = chai.expect;
 let db;
+const MovieId = 634649;
 
 describe("Movies endpoint", () => {
   before(() => {
@@ -91,5 +92,32 @@ describe("Movies endpoint", () => {
           done();
         });
     });
+  });
+  describe("GET /api/movies/tmdb/:id", () => {
+    describe("when the id is valid", () => {
+      it("should return the matching movie", () => {
+        request(api)
+          .get(`/api/movies/tmdb/${MovieId}`)
+          .set("Accept", "application/json")
+          .expect("Content-Type", /json/)
+          .expect(200)
+          .then((res) => {
+            expect(res.body).to.have.property("title", currentMovieTitle);
+          });
+      });
+    });
+    describe("when the id is invalid", () => {
+      it("should return the NOT found message", () => {
+        request(api)
+        .get("/api/movies/999999")
+        .set("Accept", "application/json")
+        .expect("Content-Type", /json/)
+        .expect({
+          success: false,
+          status_code: 34,
+          status_message: "The resource you requested could not be found.",
+        });
+    });
+   });
   });
 });
