@@ -78,4 +78,18 @@ describe("Movies endpoint", () => {
       });
     });
   });
+  describe("GET /api/movies/tmdb/movies ", () => {
+    it("should return movies and a status 200", (done) => {
+      request(api)
+        .get("/api/movies/tmdb/movies")
+        .set("Accept", "application/json")
+        .expect("Content-Type", /json/)
+        .expect(200)
+        .end((err, res) => {
+          expect(res.body).to.be.ok;
+          expect(res.body).to.be.a("object")
+          done();
+        });
+    });
+  });
 });
