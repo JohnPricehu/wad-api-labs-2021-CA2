@@ -41,7 +41,7 @@ async function loadGenres() {
       console.error(`failed to Load movie Data: ${err}`);
     }
   }
-if (process.env.SEED_DB) {
+  if (process.env.SEED_DB == 'True') {
   loadUsers();
   loadGenres();
   loadMovies();//ADD THIS LINE
