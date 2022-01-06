@@ -8,6 +8,11 @@ import movies from "../../../../seedData/movies";
 const expect = chai.expect;
 let db;
 const MovieId = 634649;
+const deletedMovieId = 729648;
+const newReview ={
+  "author": "Yiming Hu",
+  "content": "I like Agile Software Practice and its lecturer."
+}
 
 describe("Movies endpoint", () => {
   before(() => {
@@ -38,16 +43,15 @@ describe("Movies endpoint", () => {
     api.close(); // Release PORT 8080
   });
   describe("GET /api/movies ", () => {
-    it("should return 20 movies and a status 200", (done) => {
+    it("should return 20 movies and a status 200", () => {
       request(api)
-        .get("/api/movies")
-        .set("Accept", "application/json")
-        .expect("Content-Type", /json/)
-        .expect(200)
-        .end((err, res) => {
-          expect(res.body).to.be.a("object");
-          // expect(res.body.length).to.equal(20);
-          done();
+      .get("/api/movies")
+      .set("Accept", "application/json")
+      .expect("Content-Type", /json/)
+      .expect(200)
+      .then((res) => {
+        expect(res.body).to.be.a("array");
+        expect(res.body.length).to.equal(20);
         });
     });
   });
@@ -120,4 +124,63 @@ describe("Movies endpoint", () => {
     });
    });
   });
+  describe("GET /movies/:id/reviews", () => {
+    it("should return the matching movie's reviews", () => {
+      request(api)
+        .get(`/api/movies/${MovieId}/reviews`)
+        .set("Accept", "application/json")
+        .expect("Content-Type", /json/)
+        .expect(200)
+        .then((res) => {
+          expect(res.body).to.be.a("array");
+        });
+    });
+  });
+  describe("POST /movies/:id/reviews", () => {
+    describe("when the id is valid", () => {
+    it("should add review successfully and the new review should be displayed", () => {
+      request(api)
+        .post(`/api/movies/${MovieId}/reviews`)
+        .send(newReview)
+        .expect(201)
+        .then((res) => {
+          expect(res.body).to.have.property("author","Yiming Hu");
+          expect(res.body).to.have.property("content", "I like Agile Software Practice and its lecturer.");
+        });
+    });
+  });
+  describe("when the id is invalid", () => {
+    it("should return the NOT found message", () => {
+      request(api)
+      .get("/api/movies/999999")
+      .set("Accept", "application/json")
+      .expect("Content-Type", /json/)
+      .expect({
+        success: false,
+        status_code: 34,
+        status_message: "The resource you requested could not be found.",
+      });
+  });
+ });
+});
+describe("DELETE /movies/:id", () => {
+  it("should remove movie and the status 200", () => {
+    request(api)
+      .delete(`/api/movies/${deletedMovieId}`)
+      .set("Accept", "application/json")
+      .expect("Content-Type", /json/)
+      .expect(200)
+  });
+  after(() => {
+    request(api)
+      .get("/api/movies")
+      .set("Accept", "application/json")
+      .expect("Content-Type", /json/)
+      .expect(200)
+      .then((res) => {
+        expect(res.body).to.be.a("array");
+        expect(res.body.length).to.equal(19);
+      });
+  });
+});
 });
