@@ -8,7 +8,7 @@ import movies from "../../../../seedData/movies";
 const expect = chai.expect;
 let db;
 const MovieId = 634649;
-const deletedMovieId = 729648;
+const deletedMovieId = 634649;
 const newReview ={
   "author": "Yiming Hu",
   "content": "I like Agile Software Practice and its lecturer."
