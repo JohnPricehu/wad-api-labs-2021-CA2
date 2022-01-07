@@ -82,7 +82,8 @@ From here the user can start using the app.
 | /api/movies/tmdb/upcoming |Gets a list of upcoming movies | N/A | N/A | N/A
 | /api/movies/tmdb/nowplaying |Gets a list of nowplaying movies | N/A | N/A | N/A
 | /api/movies/tmdb/toprated |Gets a list of toprated movies | N/A | N/A | N/A
-| /api/genres/movies |Get movie genres | N/A | N/A | N/A
+| /api/genres |Get movie genres | N/A | N/A | N/A
+| /api/genres/tmdb/genres |Get movie genres from TMDB | N/A | N/A | N/A
 | /api/users |Get all users |Register OR authenticate a user | Update a user | N/A
 | /api/users/:userName/favourites |Get a user's favourites | Add to favourites | N/A | N/A
 | /api/users/:userName/mustwatch |Get a user's must watch movies | Add to must watch list | N/A | N/A
