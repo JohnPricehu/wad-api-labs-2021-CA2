@@ -45,7 +45,7 @@ async function loadGenres() {
   }
   async function loadActors() {
     console.log('load actors Data');
-    console.log(actors.length);
+    // console.log(actors.length);
     try {
       await actorModel.deleteMany();
       await actorModel.collection.insertMany(actors);
