@@ -80,8 +80,8 @@ From here the user can start using the app.
 | /api/movies/:id/reviews |Get a movie's reviews | Post a movie's reviews  | N/A | N/A
 | /api/movies/:id/similar |Get a movie's similar movies | N/A   | N/A | N/A
 | /api/movies/tmdb/upcoming |Gets a list of upcoming movies | N/A | N/A | N/A
-| /api/movies/tmdb/nowplaying |Gets a list of nowplaying movies | N/A | N/A | N/A
-| /api/movies/tmdb/toprated |Gets a list of toprated movies | N/A | N/A | N/A
+| /api/movies/tmdb/now_playing |Gets a list of nowplaying movies | N/A | N/A | N/A
+| /api/movies/tmdb/top_rated |Gets a list of toprated movies | N/A | N/A | N/A
 | /api/genres |Get movie genres | N/A | N/A | N/A
 | /api/genres/tmdb/genres |Get movie genres from TMDB | N/A | N/A | N/A
 | /api/users |Get all users |Register OR authenticate a user | Update a user | N/A
