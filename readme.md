@@ -131,8 +131,8 @@ app.use('/api/movies', passport.authenticate('jwt', {session: false}), moviesRou
 
 ## Integrating with React App
 
-The React moviesapp is fully integrated with the Node.js API. 
-All show/movie related calls are first proxied to the API, and from there send off to the TMDB endpoints. 
+The React moviesapp is fully integrated with the movies-API. 
+All data of movies and actors related calls are first proxied to the API, and from there send off to the TMDB endpoints. 
 These calls include:
 
 + Discover movies
